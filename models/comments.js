@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 
-let todoSchema = mongoose.Schema({
-  title: {
+let commentsSchema = mongoose.Schema({
+  userName: {
     type: String,
     required: true
   },
-  description: {
+  comment: {
     type: String,
-    required: false
+    required: true
   },
   date: {
     type: Date,
@@ -16,4 +16,4 @@ let todoSchema = mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', todoSchema)
+module.exports = mongoose.model('User', commentsSchema)

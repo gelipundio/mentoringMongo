@@ -13,5 +13,5 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', routes)
 
 app.listen(3005, () => {
-  console.log('corriendo')
+  console.log('Corriendo en localhost:3005')
 })
