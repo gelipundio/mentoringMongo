@@ -10,5 +10,6 @@ Router.post('/', todoController.save)
 
 Router.post('/user', userController.newUser)
 Router.delete('/user', userController.deleteTrue)
+Router.put('/user', userController.modify)
 
 module.exports = Router
