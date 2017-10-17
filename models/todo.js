@@ -9,6 +9,10 @@ let todoSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  commentId: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     required: false,
