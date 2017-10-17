@@ -27,7 +27,6 @@ module.exports.modify = function modify(req, res) {
 }
 
 module.exports.deleteById = function deleteById(req, res){
-  console.log(req.body)
   model.findOneAndRemove({ '_id': req.body.id }, function (err, person) {
     if (err) return res.json(404).send()
     res.json({ message: 'Deleted' })
