@@ -2,6 +2,13 @@ const model = require ('../models/users')
 const todoController = require ('./todo')
 
 
+module.exports.getAll = function getAll(req, res){
+  model.find({}).exec((err, data) => {
+    if (err) return res.status(404).send()
+    res.json({ data })
+  })
+}
+
 module.exports.newUser = function newUser(req, res) {
   let alreadyTaken = false 
   const newUser = new model(req.body)
@@ -13,6 +20,7 @@ module.exports.newUser = function newUser(req, res) {
         return res.json({message: 'already taken'})
       }
     }
+
     if(alreadyTaken === false) {
       newUser.save((err, data) => {
         if (err) return res.status(500).send()
@@ -49,10 +57,10 @@ module.exports.deleteTrue =  function deleteTrue(req, res) {
 module.exports.modify = function modify(req, res) {
   const modified = new model(req.body)
   console.log(modified)
+  debugger
   model.findOneAndUpdate(
     {userName: modified.userName},
-    {firstName: modified.firstName},
-    {lastName: modified.lastName}
+    {$set:{firstName: modified.firstName}}
   ).exec((error,data) => {
     if(error) return console.error(error)
     res.json({message: 'Updated'})
