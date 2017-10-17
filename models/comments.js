@@ -16,4 +16,4 @@ let commentsSchema = mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('User', commentsSchema)
+module.exports = mongoose.model('Comments', commentsSchema)

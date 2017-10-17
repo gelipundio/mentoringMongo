@@ -55,7 +55,6 @@ module.exports.deleteTrue =  function deleteTrue(req, res) {
 module.exports.modify = function modify(req, res) {
   const modified = new model(req.body)
   console.log(modified)
-  debugger
   model.findOneAndUpdate(
     {userName: modified.userName},
     {$set:{firstName: modified.firstName}}
