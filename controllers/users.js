@@ -1,6 +1,4 @@
 const model = require ('../models/users')
-const todoController = require ('./todo')
-
 
 module.exports.getAll = function getAll(req, res){
   model.find({}).exec((err, data) => {
