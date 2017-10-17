@@ -38,3 +38,22 @@ module.exports.deleteById = function deleteById(req, res){
     res.json({ message: 'Deleted' })
   })
 }
+
+module.exports.getCommentsByUser = function getCommentsByUser(req, res){
+  userModel.findOne({userName: req.body.userName}).exec((err,data) => {
+    if(err) return console.error(err)
+    console.log(data)
+    let userRealName = data.firstName + ' ' + data.lastName
+    model.find({userName: req.body.userName}).exec((err,data) => {
+      console.log (data)
+
+       let userComments = data//.reduce((result, comment,i) => {
+      //   return result + data[i].comment
+      // })
+      res.json({
+        userRealName: userRealName,
+        userComments: userComments
+      })
+    })
+  })
+}
