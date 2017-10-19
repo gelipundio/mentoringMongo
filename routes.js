@@ -10,8 +10,8 @@ Router.get('/comments', commentsController.getAll)
 Router.put('/comments', commentsController.modify)
 Router.delete('/comments', commentsController.deleteById)
 
-Router.link('/user-comments', commentsController.getCommentsByUser)
-Router.link('/comments-todo', commentsController.getTodoByComment)
+Router.link('/user/setings', commentsController.getCommentsByUser)
+Router.link('/todo/comments', commentsController.getTodoByComment)
 
 
 Router.post('/todo', todoController.save)
