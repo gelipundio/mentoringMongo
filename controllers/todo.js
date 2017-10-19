@@ -16,10 +16,9 @@ module.exports.save = function save(req, res){
 }
 
 module.exports.modify = function modify(req, res) {
-  const modified = new model(req.body)
   model.findOneAndUpdate(
-    {_id: modified.id},
-    {title: modified.title}
+    {_id: req.body.id},
+    {title: req.body.title}
   ).exec((error,data) => {
     if(error) return console.error(error)
     res.json({message: 'Updated'})
