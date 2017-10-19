@@ -22,7 +22,6 @@ module.exports.newUser = function newUser(req, res) {
 }
 
 module.exports.deleteTrue =  function deleteTrue(req, res) {
-  const newUser = new model(req.body)
   model.findOneAndUpdate(
     {userName: req.body.userName},
     {isDelete: true}, 
